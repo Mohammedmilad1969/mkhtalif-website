@@ -1,0 +1,415 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark text-white font-arabic;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  html[dir="ltr"] body {
+    @apply font-english;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-gold to-lightGray bg-clip-text text-transparent;
+  }
+}
+
+/* Smooth 3D Transform Styles - Disabled on mobile for performance */
+@media (min-width: 768px) {
+  * {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced 3D effects */
+.perspective-3d {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Glass morphism effect */
+.glass-effect {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(232, 185, 91, 0.2);
+}
+
+/* Glow effect for gold elements */
+.glow-gold {
+  box-shadow: 0 0 20px rgba(232, 185, 91, 0.3),
+              0 0 40px rgba(232, 185, 91, 0.2),
+              0 0 60px rgba(232, 185, 91, 0.1);
+}
+
+.glow-gold:hover {
+  box-shadow: 0 0 30px rgba(232, 185, 91, 0.5),
+              0 0 60px rgba(232, 185, 91, 0.3),
+              0 0 90px rgba(232, 185, 91, 0.2);
+}
+
+/* Smooth transitions */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Text shadow for depth */
+.text-3d-shadow {
+  text-shadow: 
+    1px 1px 0 rgba(0, 0, 0, 0.8),
+    2px 2px 0 rgba(0, 0, 0, 0.6),
+    3px 3px 0 rgba(0, 0, 0, 0.4),
+    4px 4px 10px rgba(232, 185, 91, 0.3);
+}
+
+/* Circular Carousel Styles */
+.circular-carousel-root {
+  --height: 40vh;
+  --origin: calc(var(--height) * 5);
+  height: 20rem;
+  width: 100vw;
+  overflow: visible;
+}
+
+@media screen and (max-height: 800px) {
+  .circular-carousel-root {
+    --height: 46vh;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .circular-carousel-root {
+    --height: 46vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .circular-carousel-root {
+    height: auto;
+    min-height: auto;
+    --height: auto;
+  }
+}
+
+/* Make service cards larger on mobile */
+@media screen and (max-width: 768px) {
+  .circular-carousel-item {
+    width: 90vw !important;
+    max-width: 90vw !important;
+  }
+}
+
+/* YouTube Video Optimization for Smooth Playback */
+iframe[src*="youtube.com"],
+iframe[src*="youtu.be"] {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Optimize video container for performance */
+section[id="home"] iframe {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: auto;
+}
+
+.circular-carousel-handle {
+  width: 100%;
+  height: 300%;
+  position: absolute;
+  left: 0px;
+  overflow: visible;
+}
+
+.circular-carousel-center {
+  height: 100vh;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: visible;
+}
+
+.circular-carousel-items {
+  transform-origin: center var(--origin);
+  transform: rotate(0rad);
+  overflow: visible;
+}
+
+.circular-carousel-item {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: auto;
+  min-height: var(--height);
+  transform-origin: center var(--origin);
+  border-radius: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Loading Screen Styles */
+.loader-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  font-family: "Inter", sans-serif;
+  font-size: 1.2em;
+  font-weight: 300;
+  color: white;
+  border-radius: 50%;
+  background-color: transparent;
+  user-select: none;
+  direction: ltr; /* Force left-to-right direction for "Loading" text */
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: transparent;
+  animation: loader-rotate 2s linear infinite;
+  z-index: 0;
+}
+
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(90deg);
+    box-shadow:
+      0 10px 20px 0 #fff inset,
+      0 20px 30px 0 #ad5fff inset,
+      0 60px 60px 0 #471eec inset;
+  }
+  50% {
+    transform: rotate(270deg);
+    box-shadow:
+      0 10px 20px 0 #fff inset,
+      0 20px 10px 0 #d60a47 inset,
+      0 40px 60px 0 #311e80 inset;
+  }
+  100% {
+    transform: rotate(450deg);
+    box-shadow:
+      0 10px 20px 0 #fff inset,
+      0 20px 30px 0 #ad5fff inset,
+      0 60px 60px 0 #471eec inset;
+  }
+}
+
+.loader-letter {
+  display: inline-block;
+  opacity: 0.4;
+  transform: translateY(0);
+  animation: loader-letter-anim 2s infinite;
+  z-index: 1;
+  border-radius: 50ch;
+  border: none;
+}
+
+.loader-letter:nth-child(1) {
+  animation-delay: 0s;
+}
+.loader-letter:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.loader-letter:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.loader-letter:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.loader-letter:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.loader-letter:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.loader-letter:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+@keyframes loader-letter-anim {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  40% {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+}
+
+/* Social Media Card Styles - From Uiverse.io by jolprince_5263 */
+.card {
+  max-width: fit-content;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  gap: 1rem;
+  backdrop-filter: blur(15px);
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.192),
+    inset 0 0 5px rgba(255, 255, 255, 0.274),
+    0 5px 5px rgba(0, 0, 0, 0.164);
+  transition: 0.5s;
+}
+
+.card:hover {
+  animation: ease-out 5s;
+  background: rgba(173, 173, 173, 0.05);
+}
+
+.card ul {
+  padding: 1rem;
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.card ul li {
+  cursor: pointer;
+  position: relative;
+}
+
+.card ul li a {
+  display: block;
+  position: relative;
+  z-index: 10;
+  width: 60px;
+  height: 60px;
+}
+
+.svg {
+  transition: all 0.3s;
+  padding: 1rem;
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  color: rgb(255, 174, 0);
+  fill: currentColor;
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.5),
+    0 5px 5px rgba(0, 0, 0, 0.164);
+  display: block;
+  pointer-events: none;
+}
+
+.text {
+  opacity: 0;
+  border-radius: 5px;
+  padding: 5px;
+  transition: all 0.3s;
+  color: rgb(255, 174, 0);
+  background-color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  z-index: 1;
+  box-shadow:
+    -5px 0 1px rgba(153, 153, 153, 0.2),
+    -10px 0 1px rgba(153, 153, 153, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.5),
+    0 5px 5px rgba(0, 0, 0, 0.082);
+  white-space: nowrap;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  margin-left: 10px;
+  pointer-events: none;
+}
+
+/* Isometric projection */
+.iso-pro {
+  transition: 0.5s;
+}
+
+.iso-pro:hover a > .svg {
+  transform: translate(15px, -15px);
+  border-radius: 100%;
+}
+
+.iso-pro:hover .text {
+  opacity: 1;
+  transform: translate(25px, -50%) skew(-5deg);
+}
+
+.iso-pro:hover .svg {
+  transform: translate(5px, -5px);
+}
+
+.iso-pro span {
+  opacity: 0;
+  position: absolute;
+  color: #1877f2;
+  border-color: #1877f2;
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.5),
+    0 5px 5px rgba(0, 0, 0, 0.164);
+  border-radius: 50%;
+  transition: all 0.3s;
+  height: 60px;
+  width: 60px;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.iso-pro:hover span {
+  opacity: 1;
+}
+
+.iso-pro:hover span:nth-child(1) {
+  opacity: 0.2;
+}
+
+.iso-pro:hover span:nth-child(2) {
+  opacity: 0.4;
+  transform: translate(5px, -5px);
+}
+
+.iso-pro:hover span:nth-child(3) {
+  opacity: 0.6;
+  transform: translate(10px, -10px);
+}
+
+
