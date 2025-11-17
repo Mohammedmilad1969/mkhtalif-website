@@ -15,8 +15,10 @@ export default {
         pink: '#D3D3D3',
       },
       fontFamily: {
-        arabic: ['Tajawal', 'Cairo', 'sans-serif'],
-        english: ['Poppins', 'sans-serif'],
+        arabic: ['"Hacen Algeria"', 'Tajawal', 'sans-serif'],
+        english: ['"Hacen Algeria"', 'Poppins', 'sans-serif'],
+        title: ['"Ubuntu"', '"Ubuntu Arabic"', 'sans-serif'],
+        body: ['"Hacen Algeria"', 'Tajawal', 'Poppins', 'sans-serif'],
       },
     },
   },

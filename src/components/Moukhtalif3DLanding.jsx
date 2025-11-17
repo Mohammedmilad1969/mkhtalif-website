@@ -1174,7 +1174,7 @@ const Moukhtalif3DLanding = () => {
         {
           from_name: formData.name,
           from_email: formData.email,
-          phone: formData.phone,
+          from_phone: formData.phone,
           message: formData.inquiry,
           to_email: 'info@moukhtalif.com', // Your email address
         },
@@ -1273,9 +1273,9 @@ const Moukhtalif3DLanding = () => {
           {
             title: '🧩 إدارة العلامة التجارية',
             items: [
-              'تصميم الشعارات (Logo Design)',
-              'الهوية البصرية الكاملة (Brand Identity System)',
-              'الهوية الكلامية (Tone of Voice)',
+              'تصميم الشعارات احترافيه (Logo Design)',
+              'هوية بصرية كاملة (Visual Identity)',
+              'تصميم هويه تجاريه (Branding design)',
               'بروفايل الشركات (Company Profile)',
               'الكتيبات والمطبوعات التعريفية'
             ]
@@ -1309,15 +1309,14 @@ const Moukhtalif3DLanding = () => {
               'صياغة الرسائل الإعلانية والعروض',
               'تصميم الإعلانات (صور وفيديوهات)',
               'متابعة الأداء وتحليل النتائج',
-              'تحسين الحملة أسبوعيًا لتحقيق أعلى عائد'
+              'تحسين الحملة بي استمرار لتحقيق أعلى عائد'
             ]
           },
           {
             title: '🧾 التصاميم والمطبوعات',
             items: [
-              'تصميم البنرات الإعلانية',
-              'تصميم الفلايرات والبطاقات التعريفية',
-              'تصميم التغليف والملصقات',
+              'تصميم جرافيكي (سوشيل ميديا/انيماشن قصير/هويات بصريه)',
+              'تصميم مطبوعات بي جميع انواعها',
               'تجهيز ملفات الطباعة عالية الدقة'
             ]
           },
@@ -1346,9 +1345,9 @@ const Moukhtalif3DLanding = () => {
       footer: {
         contact: 'تواصل معنا',
         email: 'info@moukhtalif.com',
-        phone: '+218934639125',
-        whatsapp: '+218934639125',
-        address: 'ليبيا، طرابلس',
+        phone: '218912246224+',
+        whatsapp: '218912246224+',
+        address: 'بالقرب من مركز السلام الطبي، جنزور، طرابلس، ليبيا',
         workingHours: '9:00 ص - 5:00 م',
         copyright: 'جميع الحقوق محفوظة',
         year: new Date().getFullYear(),
@@ -1358,7 +1357,7 @@ const Moukhtalif3DLanding = () => {
         services: 'خدماتنا',
         location: 'موقعنا',
         locationTitle: 'موقعنا',
-        locationAddress: 'طرابلس، ليبيا',
+        locationAddress: 'بالقرب من مركز السلام الطبي، جنزور، طرابلس، ليبيا',
         getInTouch: 'تواصل معنا'
       },
       contact: {
@@ -1443,9 +1442,9 @@ const Moukhtalif3DLanding = () => {
           {
             title: '🧩 Brand Management',
             items: [
-              'Logo Design',
-              'Complete Brand Identity System',
-              'Tone of Voice',
+              'Professional Logo Design',
+              'Complete Visual Identity',
+              'Branding design',
               'Company Profile',
               'Brochures and Print Materials'
             ]
@@ -1479,15 +1478,14 @@ const Moukhtalif3DLanding = () => {
               'Ad Copy and Offer Creation',
               'Ad Design (Images & Videos)',
               'Performance Monitoring and Analytics',
-              'Weekly Campaign Optimization'
+              'Continuous Campaign Optimization'
             ]
           },
           {
             title: '🧾 Design & Print',
             items: [
-              'Banner Design (Facebook Cover, Roll Up, X-Banner, Street Banners)',
-              'Flyers and Business Cards',
-              'Packaging and Labels Design',
+              'Graphic Design (Social Media, Short Animation/Gifs, Visual Identity)',
+              'Designing Print Materials (Brochures, Flyers, Business Cards, etc.)',
               'High-Resolution Print Files'
             ]
           },
@@ -1520,9 +1518,9 @@ const Moukhtalif3DLanding = () => {
       footer: {
         contact: 'Contact Us',
         email: 'info@moukhtalif.com',
-        phone: '+218934639125',
-        whatsapp: '+218934639125',
-        address: 'Libya, Tripoli',
+        phone: '+218912246224',
+        whatsapp: '+218912246224',
+        address: 'بالقرب من مركز السلام الطبي، جنزور، طرابلس، ليبيا',
         workingHours: '9:00 AM - 5:00 PM',
         copyright: 'All rights reserved',
         year: new Date().getFullYear(),
@@ -1532,7 +1530,7 @@ const Moukhtalif3DLanding = () => {
         services: 'Our Services',
         location: 'Location',
         locationTitle: 'Our Location',
-        locationAddress: 'Tripoli, Libya',
+        locationAddress: 'بالقرب من مركز السلام الطبي، جنزور، طرابلس، ليبيا',
         getInTouch: 'Get In Touch'
       },
       contact: {
@@ -1556,6 +1554,7 @@ const Moukhtalif3DLanding = () => {
 
   // Get current language content
   const content = copy[lang]
+  const locationQuery = encodeURIComponent(content.footer.locationAddress || content.footer.address)
 
   // Detect mobile device for performance optimization
   const [isMobile, setIsMobile] = useState(false)
@@ -1595,7 +1594,7 @@ const Moukhtalif3DLanding = () => {
               <motion.img 
                 src="/logo.png" 
                 alt={content.header.title}
-                className="h-16 md:h-20 lg:h-24 w-auto cursor-pointer"
+                className="h-20 md:h-24 lg:h-28 w-auto cursor-pointer"
                 whileHover={{ scale: 1.05, rotate: [0, -5, 5, -5, 0] }}
                 transition={{ duration: 0.5 }}
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -1634,7 +1633,7 @@ const Moukhtalif3DLanding = () => {
                     y: -3,
                     transition: { duration: 0.3 }
                   } : {}}
-                  className="text-lightGray hover:text-gold font-medium relative"
+                  className="text-lightGray text-base lg:text-lg hover:text-gold font-semibold relative"
                   style={!isMobile ? { transformStyle: 'preserve-3d' } : {}}
                 >
                   {item.text}
@@ -1682,7 +1681,7 @@ const Moukhtalif3DLanding = () => {
             }}
           >
             <iframe
-              src="https://www.youtube.com/embed/cKYknEGUwlE?autoplay=1&mute=1&loop=1&playlist=cKYknEGUwlE&controls=0&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&start=0&fs=0"
+              src="https://www.youtube.com/embed/DPCOTTBs_lQ?autoplay=1&mute=1&loop=1&playlist=DPCOTTBs_lQ&controls=0&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&start=0&fs=0"
               className="absolute top-0 left-0 w-full h-full"
               frameBorder="0"
               allow="autoplay; encrypted-media; accelerometer; gyroscope; picture-in-picture"
@@ -2058,7 +2057,9 @@ const Moukhtalif3DLanding = () => {
                     onChange={handleInputChange}
                     placeholder={content.contact.phonePlaceholder}
                     required
-                    className="w-full px-4 py-3 bg-black/50 border border-gold/30 rounded-lg text-white placeholder-lightGray/50 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all duration-300"
+                    className={`w-full px-4 py-3 bg-black/50 border border-gold/30 rounded-lg text-white placeholder-lightGray/50 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all duration-300 ${
+                      lang === 'ar' ? 'text-right placeholder:text-right' : ''
+                    }`}
                   />
                 </div>
 
@@ -2170,7 +2171,7 @@ const Moukhtalif3DLanding = () => {
                         <span></span>
                         <span></span>
                         <span></span>
-                        <a href="#" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/Mkhtalif1" target="_blank" rel="noopener noreferrer">
                           <svg
                             className="svg"
                             xmlns="http://www.w3.org/2000/svg"
@@ -2187,24 +2188,7 @@ const Moukhtalif3DLanding = () => {
                         <span></span>
                         <span></span>
                         <span></span>
-                        <a href="#" target="_blank" rel="noopener noreferrer">
-                          <svg
-                            viewBox="0 0 576 512"
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="svg"
-                          >
-                            <path
-                              d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"
-                            ></path>
-                          </svg>
-                        </a>
-                        <div className="text">YouTube</div>
-                      </li>
-                      <li className="iso-pro">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <a href="#" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/mkhtalif_1" target="_blank" rel="noopener noreferrer">
                           <svg
                             viewBox="0 0 448 512"
                             xmlns="http://www.w3.org/2000/svg"
@@ -2221,7 +2205,22 @@ const Moukhtalif3DLanding = () => {
                         <span></span>
                         <span></span>
                         <span></span>
-                        <a href="#" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.behance.net/mkhtalif" target="_blank" rel="noopener noreferrer">
+                          <svg
+                            viewBox="0 0 576 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="svg"
+                          >
+                            <path d="M232 237.9c14.9-7.2 24.6-17.3 29-30.4 1.9-5.7 2.9-12.7 2.9-21.1 0-14.5-3.4-26-10.1-34.5-4.4-5.5-10.4-9.9-18-13.2 0 0-10.3-3.5-23.5-5.1-9.7-1.2-20.5-1.9-32.5-1.9H32v215.1h150.6c12.7 0 23.9-.8 33.6-2.5 10.4-1.8 19.3-4.8 26.8-9 9.9-5.5 17.2-13 21.8-22.5 4.6-9.5 7-20.4 7-32.8 0-17-4-30.6-12-40.7-8-10.2-18.5-17.4-31.4-21.4zm-128-73.9h66.5c11.7 0 21.1 2.1 28.2 6.4 7.1 4.2 10.6 11.7 10.6 22.4 0 11.9-3.6 20.1-10.9 24.5-7.2 4.4-16.5 6.6-27.9 6.6H104v-59.9zm91.6 148.3c-7.8 4.5-18.2 6.7-31.2 6.7H104v-65.8h63.6c12.6 0 22.5 2.6 29.6 7.7s10.6 14 10.6 26.7c0 14.3-3.9 24.2-11.2 28.7zm293.9-111.6c-12.8-14.5-32-21.7-57.6-21.7-24.9 0-45.5 6.9-61.7 20.7-16.1 13.8-25.9 33.1-29.2 57.8-.6 5.2-.9 12.7-.9 22.3 0 44.2 12.9 74.6 38.8 91.1 15.9 10.3 35.1 15.4 57.7 15.4 24.7 0 45.2-6.1 61.4-18.4 16.3-12.3 25.5-29.6 27.7-51.9h-49.8c-2.8 9.5-7.4 16.6-13.8 21.2-6.3 4.6-15.1 6.9-26.2 6.9-12.6 0-22.5-4-29.9-11.9s-11.2-19.8-11.8-35.6h131.3c.3-5.9.5-11 .5-15.4 0-30.7-6.5-54.5-19.4-70.5zM448 272H346.1c1.1-11.6 4.4-20.8 10-27.3 7.9-9.6 19-14.3 33.5-14.3 10.5 0 19 2.5 25.6 7.5s10.5 13.5 11.8 24.6H448v9.5zM343 144h112v30.3H343z"></path>
+                          </svg>
+                        </a>
+                        <div className="text">Behance</div>
+                      </li>
+                      <li className="iso-pro">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <a href="https://www.tiktok.com/@mkhtalif" target="_blank" rel="noopener noreferrer">
                           <svg
                             viewBox="0 0 448 512"
                             xmlns="http://www.w3.org/2000/svg"
@@ -2368,7 +2367,7 @@ const Moukhtalif3DLanding = () => {
                   <div>
                     <p className="text-sm md:text-base text-lightGray/80 font-medium mb-2">{content.footer.locationAddress}</p>
                     <a 
-                      href="https://www.google.com/maps?q=Tripoli,+Libya" 
+                      href={`https://www.google.com/maps?q=${locationQuery}`} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-gold hover:text-gold/80 text-xs md:text-sm transition-colors flex items-center gap-1 group/link"
@@ -2383,7 +2382,7 @@ const Moukhtalif3DLanding = () => {
                 {/* Google Maps Embed */}
                 <div className="mt-4 rounded-lg overflow-hidden border border-gold/20 shadow-lg hover:border-gold/40 transition-colors bg-dark/30">
                   <iframe
-                    src="https://www.google.com/maps?q=Tripoli,+Libya&output=embed&zoom=12"
+                    src={`https://www.google.com/maps?q=${locationQuery}&output=embed&zoom=16`}
                     width="100%"
                     height="200"
                     style={{ border: 0 }}
@@ -2397,7 +2396,7 @@ const Moukhtalif3DLanding = () => {
                 {/* Direct link to Google Maps */}
                 <div className="mt-2 text-center">
                   <a 
-                    href="https://www.google.com/maps/search/?api=1&query=Tripoli,+Libya" 
+                    href={`https://www.google.com/maps/search/?api=1&query=${locationQuery}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-xs text-lightGray/60 hover:text-gold transition-colors inline-flex items-center gap-1"
